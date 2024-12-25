@@ -7,15 +7,149 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+[data-theme='dark'] {
+  --background: #171717;
+  --foreground: #ffffff;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Leaflet Harita Stilleri */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border-radius: 1rem;
+}
+
+.leaflet-control-container .leaflet-control {
+  z-index: 999;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.leaflet-popup-content {
+  margin: 1rem 1.25rem;
+  font-family: inherit;
+}
+
+.leaflet-popup-close-button {
+  padding: 0.75rem !important;
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .grid {
+    gap: 1.5rem;
+  }
+  
+  .text-xl {
+    font-size: 1.25rem;
+  }
+  
+  .map-container {
+    height: 400px !important;
+  }
+}
+
+/* Tema Geçiş Animasyonları */
+* {
+  transition: background-color 0.3s ease, 
+              color 0.3s ease,
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+/* Karanlık Tema Stilleri */
+.dark body {
+  background-color: #0a0a0a;
+}
+
+.dark .bg-white {
+  background-color: #1a1a1a;
+}
+
+.dark .bg-gray-50 {
+  background-color: #171717;
+}
+
+.dark .bg-gray-100 {
+  background-color: #1f1f1f;
+}
+
+.dark .text-gray-600 {
+  color: #d1d5db;
+}
+
+.dark .text-gray-700 {
+  color: #e5e7eb;
+}
+
+.dark .text-gray-800 {
+  color: #f3f4f6;
+}
+
+.dark .text-gray-900 {
+  color: #f9fafb;
+}
+
+.dark .border-gray-300 {
+  border-color: #404040;
+}
+
+.dark .hover\:border-gray-400:hover {
+  border-color: #525252;
+}
+
+.dark .ring-gray-300 {
+  --tw-ring-color: #404040;
+}
+
+.dark .shadow-lg {
+  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+/* Özel Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #666;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+/* Harita Container */
+.map-container {
+  height: 700px;
 }
